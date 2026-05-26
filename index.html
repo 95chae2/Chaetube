@@ -57,7 +57,7 @@
     }
 
     .header-inner {
-      max-width: 1180px;
+      max-width: 1240px;
       height: 76px;
       margin: 0 auto;
       padding: 0 28px;
@@ -98,7 +98,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: clamp(18px, 3vw, 42px);
+      gap: clamp(12px, 1.8vw, 24px);
       font-size: 14px;
       font-weight: 750;
       color: #33363d;
@@ -107,6 +107,19 @@
 
     .nav a {
       padding: 8px 0;
+    }
+
+    .nav-group {
+      display: flex;
+      align-items: center;
+      gap: clamp(12px, 1.8vw, 24px);
+    }
+
+    .nav-divider {
+      width: 1px;
+      height: 18px;
+      background: rgba(21, 23, 27, .18);
+      flex: 0 0 auto;
     }
 
     .nav a:hover {
@@ -1119,6 +1132,11 @@
         overflow-x: auto;
       }
 
+      .nav-group {
+        gap: 22px;
+        flex: 0 0 auto;
+      }
+
       .hero-inner,
       .composer-layout {
         grid-template-columns: 1fr;
@@ -1230,12 +1248,18 @@
         제목설계 노트
       </a>
       <nav class="nav" aria-label="상단 메뉴">
-        <a href="#formula">공식</a>
-        <a href="#guide">구체화 가이드</a>
-        <a href="#workflow">워크플로우</a>
-        <a href="ab.html">A/B</a>
-        <a href="click-kick.html">Click kick</a>
-        <a href="doing.html">Doing</a>
+        <span class="nav-group" aria-label="메인 페이지 섹션">
+          <a href="#formula">공식</a>
+          <a href="#guide">구체화 가이드</a>
+          <a href="#workflow">워크플로우</a>
+        </span>
+        <span class="nav-divider" aria-hidden="true"></span>
+        <span class="nav-group" aria-label="새 페이지">
+          <a href="tip.html">TIP</a>
+          <a href="ab.html">A/B</a>
+          <a href="click-kick.html">Click kick</a>
+          <a href="doing.html">Doing</a>
+        </span>
       </nav>
       <a class="primary-button" href="#composer" aria-label="제목 조합기로 이동">
         제목 조합기

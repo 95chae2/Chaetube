@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TIP - 제목설계 노트</title>
+  <style>
+    :root { --ink:#15171b; --muted:#62666f; --line:#eadfce; --paper:#fffdfa; --red:#db2f2f; --shadow:0 18px 44px rgba(45,36,22,.08); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:linear-gradient(90deg,#fffdfa,#fff8ea); font-family:Pretendard, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing:0; }
+    a { color:inherit; text-decoration:none; }
+    .site-header { position:sticky; top:0; z-index:20; border-bottom:1px solid rgba(25,25,25,.08); background:rgba(255,253,250,.92); backdrop-filter:blur(16px); }
+    .header-inner { max-width:1240px; min-height:76px; margin:0 auto; padding:0 28px; display:flex; align-items:center; justify-content:space-between; gap:22px; }
+    .brand { display:flex; align-items:center; gap:13px; font-weight:900; font-size:22px; white-space:nowrap; }
+    .brand-mark { width:34px; height:24px; border-radius:6px; display:grid; place-items:center; color:white; background:var(--red); }
+    .brand-mark svg { width:15px; height:15px; fill:currentColor; margin-left:2px; }
+    .nav { display:flex; align-items:center; justify-content:center; gap:clamp(12px,1.8vw,24px); font-size:14px; font-weight:750; color:#33363d; flex:1; }
+    .nav-group { display:flex; align-items:center; gap:clamp(12px,1.8vw,24px); }
+    .nav-divider { width:1px; height:18px; background:rgba(21,23,27,.18); flex:0 0 auto; }
+    .nav a:hover, .nav a[aria-current="page"] { color:var(--red); }
+    .primary-button { border-radius:7px; color:white; background:#141417; padding:13px 18px; display:inline-flex; align-items:center; justify-content:center; font-size:14px; font-weight:850; white-space:nowrap; }
+    .section-inner { max-width:1120px; margin:0 auto; padding:86px 28px; }
+    .kicker { margin:0 0 22px; color:var(--red); font-size:13px; font-weight:950; text-transform:uppercase; }
+    h1 { max-width:920px; margin:0 0 18px; font-size:clamp(36px,5vw,58px); line-height:1.12; font-weight:950; }
+    .lead { max-width:820px; margin:0 0 42px; color:#4f5560; line-height:1.72; font-weight:700; }
+    .jump-nav { display:flex; flex-wrap:wrap; gap:10px; margin:0 0 48px; }
+    .jump-nav a { border:1px solid #e3d4bd; border-radius:7px; background:#fff; padding:12px 14px; color:#252932; font-size:14px; font-weight:900; box-shadow:0 10px 24px rgba(45,36,22,.05); }
+    .jump-nav a:hover { border-color:var(--red); color:var(--red); }
+    .tip-section { margin-top:58px; scroll-margin-top:96px; }
+    .tip-section:first-of-type { margin-top:0; }
+    .section-heading { display:flex; align-items:flex-end; justify-content:space-between; gap:20px; margin-bottom:18px; }
+    .section-heading h2 { margin:0; font-size:32px; line-height:1.18; font-weight:950; }
+    .section-heading span { color:#a86f22; font-size:13px; font-weight:950; text-transform:uppercase; white-space:nowrap; }
+    .tip-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+    .tip-card { border:1px solid var(--line); border-radius:8px; background:white; padding:22px; box-shadow:var(--shadow); }
+    .tip-card.wide { grid-column:1 / -1; }
+    .tip-card h3 { margin:0 0 14px; font-size:21px; line-height:1.32; font-weight:950; }
+    .tip-card ul { margin:0; padding-left:20px; color:#4f5560; line-height:1.72; font-weight:700; }
+    .tip-card li + li { margin-top:5px; }
+    @media (max-width:900px) {
+      .header-inner { height:auto; padding:16px 20px; flex-wrap:wrap; }
+      .nav { order:3; width:100%; justify-content:flex-start; gap:22px; overflow-x:auto; }
+      .nav-group { gap:22px; flex:0 0 auto; }
+      .tip-grid { grid-template-columns:1fr; }
+      .section-heading { display:block; }
+      .section-heading span { display:block; margin-top:8px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html#top"><span class="brand-mark"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5-11-6.5Z"></path></svg></span>제목설계 노트</a>
+      <nav class="nav" aria-label="상단 메뉴">
+        <span class="nav-group" aria-label="메인 페이지 섹션">
+          <a href="index.html#formula">공식</a>
+          <a href="index.html#guide">구체화 가이드</a>
+          <a href="index.html#workflow">워크플로우</a>
+        </span>
+        <span class="nav-divider" aria-hidden="true"></span>
+        <span class="nav-group" aria-label="새 페이지">
+          <a href="tip.html" aria-current="page">TIP</a>
+          <a href="ab.html">A/B</a>
+          <a href="click-kick.html">Click kick</a>
+          <a href="doing.html">Doing</a>
+        </span>
+      </nav>
+      <a class="primary-button" href="index.html#composer">제목 조합기</a>
+    </div>
+  </header>
+  <main>
+    <section class="section-inner">
+      <p class="kicker">YouTube Tips</p>
+      <h1>유튜브 TIP</h1>
+      <p class="lead">채널을 시작하고, 콘텐츠를 기획하고, 업로드 후 반응을 보는 데 필요한 운영 체크리스트입니다.</p>
+      <nav class="jump-nav" aria-label="TIP 바로가기">
+        <a href="#start">1. 유튜브 시작</a>
+        <a href="#check">2. 시작 전 체크</a>
+        <a href="#growth">3. 구독자 늘리기</a>
+        <a href="#content">4. 콘텐츠 구성</a>
+        <a href="#operation">5. 촬영·편집·운영</a>
+        <a href="#hundred">6. 100명 전 체크</a>
+        <a href="#upload">7. 업로드 시간</a>
+        <a href="#channel">8. 기존/새 채널</a>
+        <a href="#tag">9. 태그·해시태그</a>
+        <a href="#strategy">10. 전략</a>
+      </nav>
+
+      <section id="start" class="tip-section">
+        <div class="section-heading"><h2>1. 유튜브 시작</h2><span>조회수를 늘리는 기본</span></div>
+        <div class="tip-grid">
+          <article class="tip-card">
+            <h3>댓글 파도타기</h3>
+            <ul>
+              <li>내 채널과 비슷한 콘텐츠 채널을 검색합니다.</li>
+              <li>검색 채널이 최근 1~2주 안에 업로드되고 있는지 확인합니다.</li>
+              <li>운영자가 댓글로 자주 소통하는 채널인지 봅니다.</li>
+              <li>댓글을 누르며 연계 채널로 이동해 서로 소통하는 흐름을 확인합니다.</li>
+              <li>비슷한 채널을 구독하고 소통하며 다른 채널에도 방문합니다.</li>
+              <li>영상 내용에 맞는 성의 있는 댓글을 남깁니다.</li>
+              <li>댓글을 통해 다른 채널로 넘어가며 내 채널을 알립니다.</li>
+            </ul>
+          </article>
+          <article class="tip-card">
+            <h3>댓글 파도타기 주의점</h3>
+            <ul>
+              <li>방문이나 구독을 유도하는 글은 쓰지 않습니다.</li>
+              <li>영상을 끝까지 시청한 뒤 댓글을 작성합니다.</li>
+              <li>하루 10개 이상 댓글은 자제하고, 대댓글은 가능합니다.</li>
+              <li>반드시 내 채널과 비슷한 주제와 콘텐츠를 하는 채널에만 합니다.</li>
+              <li>구독자 100명까지만 집중하고, 계속 소통하던 채널은 유지합니다.</li>
+              <li>구독은 진짜 마음에 드는 채널에만 합니다.</li>
+            </ul>
+          </article>
+          <article class="tip-card wide">
+            <h3>유튜버 성장 비법</h3>
+            <ul>
+              <li>영상 업로드 횟수보다 영상의 재미와 정보가 중요합니다.</li>
+              <li>내가 좋아하는 콘텐츠보다 남들이 좋아하는 콘텐츠를 만듭니다.</li>
+              <li>적절한 트렌드를 반영합니다.</li>
+              <li>차별화된 희소성 있는 콘텐츠와 대리만족 요소를 만듭니다.</li>
+              <li>하나의 주제로 꾸준히 이어갑니다.</li>
+              <li>유튜브 스튜디오에서 내 채널에 뜨는 콘텐츠를 분석합니다.</li>
+              <li>주제와 목적이 있는 영상을 만듭니다.</li>
+              <li>매니아층 선점, 콘텐츠 확장, 대중화 순서로 넓힙니다.</li>
+              <li>하나의 영상이라도 대충 만들지 않습니다.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="check" class="tip-section">
+        <div class="section-heading"><h2>2. 유튜브 시작 전 체크</h2><span>채널 설계</span></div>
+        <div class="tip-grid">
+          <article class="tip-card">
+            <h3>목표 채널 정하기</h3>
+            <ul>
+              <li>내가 할 수 있을 것 같은 느낌이 드는 목표 채널 2~3개를 고릅니다.</li>
+              <li>1년~1년 반 전에 시작한 채널을 참고합니다.</li>
+              <li>구독자 10만 이하 채널을 기준으로 봅니다.</li>
+            </ul>
+          </article>
+          <article class="tip-card">
+            <h3>6하원칙에 맞는 채널 설정</h3>
+            <ul>
+              <li>언제: 촬영과 편집, 일주일에 만들 영상 개수를 정합니다.</li>
+              <li>어디서: 촬영 장소와 편집 장비를 정합니다.</li>
+              <li>누구와: 촬영, 출연, 편집 담당을 정합니다.</li>
+              <li>무엇을: 가장 중요한 채널 소재를 정합니다.</li>
+              <li>어떻게: 촬영, 녹음, 조명, 편집과 아이디어 생산 방식을 정합니다.</li>
+              <li>왜: 이 채널을 만든 이유를 정합니다.</li>
+            </ul>
+          </article>
+          <article class="tip-card">
+            <h3>콘텐츠 정하기</h3>
+            <ul>
+              <li>촬영하지 않아도 원래 하는 것을 소재로 삼습니다.</li>
+              <li>쉽게 만들 수 있는 콘텐츠는 경쟁이 심합니다.</li>
+              <li>차세대 구독자 상승 콘텐츠는 정보 제공형입니다.</li>
+              <li>특별한 게 없어도 유튜브를 하고 싶다면 정보 제공 관점으로 바꿔봅니다.</li>
+            </ul>
+          </article>
+          <article class="tip-card">
+            <h3>퀄리티</h3>
+            <ul>
+              <li>카메라는 폰으로 대체할 수 있고, 후면 카메라를 사용합니다.</li>
+              <li>마이크 상태를 확인합니다.</li>
+              <li>타깃 채널과 비교해 기본 퀄리티를 맞춥니다.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="growth" class="tip-section">
+        <div class="section-heading"><h2>3. 진짜 구독자 늘리는 법</h2><span>성과 지표</span></div>
+        <div class="tip-grid">
+          <article class="tip-card">
+            <h3>썸네일과 제목</h3>
+            <ul>
+              <li>업로드 후 48시간 내 성적이 중요합니다.</li>
+              <li>썸네일은 관심을 끌만한 문구와 이미지를 씁니다.</li>
+              <li>제목은 정확한 내용을 설명하는 문구와 키워드를 넣습니다.</li>
+            </ul>
+          </article>
+          <article class="tip-card">
+            <h3>썸네일에 들어가면 안 되는 것</h3>
+            <ul>
+              <li>과도한 폭력 표현은 피합니다.</li>
+              <li>일부 시청자층에게 안전하지 않은 이미지는 피합니다.</li>
+              <li>지나치게 선정적이거나 자극적인 콘텐츠는 피합니다.</li>
+              <li>오해를 불러일으키는 방식의 가족 캐릭터 사용은 피합니다.</li>
+            </ul>
+          </article>
+          <article class="tip-card">
+            <h3>CTR 기준</h3>
+            <ul>
+              <li>Bad: 노출 클릭률 2% 이하</li>
+              <li>Good: 노출 클릭률 6~7%</li>
+              <li>Best: 노출 클릭률 10% 이상</li>
+            </ul>
+          </article>
+          <article class="tip-card">
+            <h3>채널 이름</h3>
+            <ul>
+              <li>한 채널에는 한 가지 콘텐츠를 담습니다.</li>
+              <li>채널명에는 콘텐츠 설명을 붙입니다.</li>
+              <li>채널명은 90일마다 3번 변경할 수 있습니다.</li>
+            </ul>
+          </article>
+          <article class="tip-card">
+            <h3>평균 시청 지속 시간 / 평균 조회율</h3>
+            <ul>
+              <li>속도감 있는 편집을 합니다.</li>
+              <li>인트로 영상은 뺍니다.</li>
+              <li>30초 안에 궁금해지도록 하이라이트 영상으로 시작합니다.</li>
+            </ul>
+          </article>
+          <article class="tip-card">
+            <h3>영상 길이별 시청시간 기준</h3>
+            <ul>
+              <li>수익 창출 전까지는 최대한 짧게 편집합니다.</li>
+              <li>2분 미만 영상은 최소 65~80%를 목표로 합니다.</li>
+              <li>4~6분 영상은 최소 50%를 목표로 합니다.</li>
+              <li>7분 이상 영상은 최소 45%를 목표로 합니다.</li>
+              <li>10분 이상 영상은 최소 40%를 목표로 합니다.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="content" class="tip-section">
+        <div class="section-heading"><h2>4. 성공하는 콘텐츠 구성법</h2><span>맥락과 늘어짐</span></div>
+        <div class="tip-grid">
+          <article class="tip-card">
+            <h3>영상 주제에만 집중</h3>
+            <ul>
+              <li>전달하려는 주제와 내용에 집중합니다.</li>
+              <li>어떤 영상을 보여주려는지 분명히 합니다.</li>
+              <li>주제와 상관없다면 과감히 삭제합니다.</li>
+            </ul>
+          </article>
+          <article class="tip-card">
+            <h3>재미없는 부분 삭제</h3>
+            <ul>
+              <li>관심도가 확 떨어지는 순간은 이탈 지점입니다.</li>
+              <li>집중을 떨어뜨릴 쓸데없는 이야기와 지루한 부분은 삭제합니다.</li>
+              <li>10분 분량 중 5분이 지루하면 그냥 5분짜리 영상입니다.</li>
+            </ul>
+          </article>
+          <article class="tip-card">
+            <h3>유튜브 방식의 흐름</h3>
+            <ul>
+              <li>맥락에 맞는 중간 화면은 꼭 필요하지 않습니다.</li>
+              <li>하이라이트를 먼저 보여주고 시작해 궁금하게 만듭니다.</li>
+              <li>기승전결보다 결론을 먼저 보여주는 흐름을 씁니다.</li>
+            </ul>
+          </article>
+          <article class="tip-card">
+            <h3>유튜브 하면 안 되는 3가지 유형</h3>
+            <ul>
+              <li>유튜브를 잘 보지 않는 사람: 같은 장르 대형 채널을 구독하고 많이 봐야 합니다.</li>
+              <li>수익 목적으로만 시작하는 사람: 내가 꾸준히 할 수 있는 콘텐츠를 해야 합니다.</li>
+              <li>묻지마 업로드: 영상 1개라도 먼저 기획해야 합니다.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="operation" class="tip-section">
+        <div class="section-heading"><h2>5. 촬영·편집·기획·채널 운영법</h2><span>제작 체크리스트</span></div>
+        <div class="tip-grid">
+          <article class="tip-card">
+            <h3>기획하기</h3>
+            <ul>
+              <li>한 줄로 주제를 요약합니다.</li>
+              <li>촬영 장면이 많다면 콘티를 만듭니다.</li>
+              <li>썸네일 이미지와 제목을 정하고, 썸네일용 이미지는 따로 촬영합니다.</li>
+              <li>멘트가 주를 이룬다면 대본을 작성합니다.</li>
+              <li>소스 영상이 필요하면 미리 확보합니다.</li>
+            </ul>
+          </article>
+          <article class="tip-card">
+            <h3>촬영</h3>
+            <ul>
+              <li>메모리 용량을 확인합니다.</li>
+              <li>배터리를 완충합니다.</li>
+              <li>대본, 콘티, 촬영 순서를 준비합니다.</li>
+              <li>폰 촬영 시 사이즈를 확인합니다.</li>
+              <li>촬영 순서대로 촬영하고 B컷을 추가 촬영합니다.</li>
+              <li>인서트를 챙깁니다.</li>
+              <li>녹화 버튼과 오디오 큐시그널을 확인합니다.</li>
+              <li>조명을 확인합니다.</li>
+            </ul>
+          </article>
+          <article class="tip-card">
+            <h3>편집</h3>
+            <ul>
+              <li>편집에만 집중할 수 있는 장소를 마련합니다.</li>
+              <li>촬영 후 제일 먼저 백업합니다.</li>
+              <li>소스는 미리 다운로드합니다.</li>
+              <li>가편집은 대충, 빠르게, 끝까지 진행합니다.</li>
+              <li>종편에서는 컷을 빠르게 하고 맥락과 늘어짐에 유의합니다.</li>
+              <li>트랜지션과 브릿지를 삽입합니다.</li>
+              <li>자막, 보정, 오디오 등 세부 작업을 합니다.</li>
+              <li>렌더링 후 썸네일을 제작합니다.</li>
+            </ul>
+          </article>
+          <article class="tip-card">
+            <h3>업로드</h3>
+            <ul>
+              <li>제목은 대분류 키워드, 중분류, 연관 키워드 흐름으로 구성합니다.</li>
+              <li>설명은 크게 중요하지 않습니다.</li>
+              <li>해시태그는 외부 검색용으로 4~5개 넣습니다.</li>
+              <li>태그는 주제와 연관되거나 연상되는 키워드 10~15개를 넣습니다.</li>
+              <li>특정 요일과 시간대를 정합니다.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="hundred" class="tip-section">
+        <div class="section-heading"><h2>6. 구독자 100명 전 체크</h2><span>해야 할 것과 피할 것</span></div>
+        <div class="tip-grid">
+          <article class="tip-card">
+            <h3>꼭 해놔야 할 것</h3>
+            <ul>
+              <li>채널아트에는 채널을 요약할 수 있는 문구를 넣습니다.</li>
+              <li>레이아웃에는 인기 업로드와 업로드 영상을 정리합니다.</li>
+              <li>비구독자와 재방문 구독자 추천 영상에는 짧은 채널 소개 영상을 둡니다.</li>
+              <li>채널명에 내 채널 주제를 요약한 설명을 붙입니다.</li>
+              <li>1000명 이하의 비슷한 채널에서 댓글 파도타기를 합니다.</li>
+              <li>인기 영상의 장단점을 분석해 내 채널에 반영합니다.</li>
+            </ul>
+          </article>
+          <article class="tip-card">
+            <h3>절대 하면 안 되는 것</h3>
+            <ul>
+              <li>아무 영상이나 올리지 않습니다.</li>
+              <li>채널 홍보는 신중하게 합니다.</li>
+              <li>제목에는 필요한 내용만 넣습니다.</li>
+              <li>하루 종일 조회수만 확인하지 않습니다.</li>
+              <li>영상 길이는 가능한 짧게, 2~4분 정도로 만듭니다.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="upload" class="tip-section">
+        <div class="section-heading"><h2>7. 업로드 시간</h2><span>노출 타이밍</span></div>
+        <div class="tip-grid">
+          <article class="tip-card">
+            <h3>업로드 시간의 작동 순서</h3>
+            <ul>
+              <li>모든 알림을 설정한 사람을 통해 주 시청자층을 확인합니다.</li>
+              <li>채널 구독자와 좋아요를 누른 사람이 초기 반응을 만듭니다.</li>
+            </ul>
+          </article>
+          <article class="tip-card">
+            <h3>목표 채널과 경쟁 채널 선정</h3>
+            <ul>
+              <li>비슷한 콘텐츠를 하는 채널을 봅니다.</li>
+              <li>목표 채널은 구독자 수가 내 채널의 2~5배 사이인 곳을 고릅니다.</li>
+              <li>경쟁 채널은 구독자 수가 비슷한 채널을 봅니다.</li>
+              <li>일정한 영상 업로드 기간과 활발한 댓글 활동 여부를 확인합니다.</li>
+            </ul>
+          </article>
+          <article class="tip-card wide">
+            <h3>분야별 업로드 시간</h3>
+            <ul>
+              <li>목표 채널과 경쟁 채널의 업로드 시간보다 30분 늦게 업로드합니다.</li>
+              <li>정보 관련 채널: 평일 출퇴근 시간에 짧게, 자막을 넣습니다.</li>
+              <li>부동산, 금융 관련: 오후 5시</li>
+              <li>정치, 뉴스, 이슈 정보: 오전 7시 또는 오후 5시</li>
+              <li>키즈: 평일 오후 4~5시, 주말 오전 8시</li>
+              <li>테크, 쇼핑, 제품 리뷰: 토~월 오후 5시</li>
+              <li>브이로그, 여행, 코미디 등: 평일 오후 8시</li>
+              <li>실시간 방송, 게임 등: 평일 오후 9~12시</li>
+              <li>ASMR, 릴랙스 등: 밤 12시 이후</li>
+              <li>정각보다는 15분, 45분처럼 애매한 시간을 씁니다.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="channel" class="tip-section">
+        <div class="section-heading"><h2>8. 기존 채널 or 새 채널?</h2><span>채널 판단</span></div>
+        <div class="tip-grid">
+          <article class="tip-card">
+            <h3>새 채널을 해야 되는 경우</h3>
+            <ul>
+              <li>조회수가 한 자리입니다.</li>
+              <li>노출수가 100자리 정도입니다.</li>
+              <li>한 달 동안 노출수가 1000 이하입니다.</li>
+              <li>총 영상이 10개 이하이고 첫 영상 업로드 후 6개월 이내라 데이터가 적습니다.</li>
+              <li>트래픽 소스가 외부의 이상한 사이트, 관련 없는 추천 영상, 상관없는 검색어로 잡힙니다.</li>
+              <li>내 시청자가 보는 다른 채널과 영상이 내 콘텐츠와 관련 없습니다.</li>
+              <li>새 콘텐츠를 시작하려면 영상 삭제 후 재편집하거나 새 채널을 시작합니다.</li>
+            </ul>
+          </article>
+          <article class="tip-card">
+            <h3>기존 채널로 해야 되는 경우</h3>
+            <ul>
+              <li>구독자가 500명 이상입니다.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="tag" class="tip-section">
+        <div class="section-heading"><h2>9. 태그와 해시태그 쓰는 법</h2><span>검색 보조</span></div>
+        <div class="tip-grid">
+          <article class="tip-card">
+            <h3>태그의 역할</h3>
+            <ul>
+              <li>사용자가 콘텐츠를 검색하는 데 도움이 되도록 추가하는 설명 키워드입니다.</li>
+              <li>동영상 콘텐츠에 일반적으로 맞춤법이 틀리는 단어가 있을 경우 유용합니다.</li>
+              <li>동영상을 검색하는 데 태그의 역할은 제한적입니다.</li>
+              <li>연관어 4~5개를 넣습니다.</li>
+            </ul>
+          </article>
+          <article class="tip-card">
+            <h3>태그 알아보는 법</h3>
+            <ul>
+              <li>우클릭 후 소스보기를 엽니다.</li>
+              <li>Ctrl+F로 keyword를 검색합니다.</li>
+            </ul>
+          </article>
+          <article class="tip-card">
+            <h3>해시태그의 역할</h3>
+            <ul>
+              <li>검색으로 특정 주제의 영상을 찾을 때 쓰입니다.</li>
+              <li>키워드 검색은 알고리즘으로 최적화된 검색 결과입니다.</li>
+              <li>해시태그 검색은 해시태그 검색어가 들어간 결과입니다.</li>
+            </ul>
+          </article>
+          <article class="tip-card">
+            <h3>효과적인 해시태그</h3>
+            <ul>
+              <li>띄어쓰기 없이 작성합니다.</li>
+              <li>설명란에 넣습니다.</li>
+              <li>60개까지 제한됩니다.</li>
+              <li>10~15개를 매번 다르게 넣습니다.</li>
+            </ul>
+          </article>
+          <article class="tip-card wide">
+            <h3>악플 대처법</h3>
+            <ul>
+              <li>삭제는 비추천합니다. 삭제도 반응의 일종입니다.</li>
+              <li>필요하면 채널에서 사용자를 숨깁니다.</li>
+              <li>내가 잘못한 상황이거나 영상 관련 정당한 비판이면 빠르게 사과합니다.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="strategy" class="tip-section">
+        <div class="section-heading"><h2>10. 유튜브 전략</h2><span>운영 방향</span></div>
+        <div class="tip-grid">
+          <article class="tip-card">
+            <h3>유튜브 쇼츠 활용</h3>
+            <ul>
+              <li>쇼츠는 유입 통로입니다.</li>
+              <li>시청자가 원하는 콘텐츠 힌트를 얻을 수 있습니다.</li>
+              <li>트렌드 분석에 활용합니다.</li>
+              <li>일반 영상보다 높은 조회수 가능성이 있습니다.</li>
+              <li>영상 제작이 쉽습니다.</li>
+            </ul>
+          </article>
+          <article class="tip-card">
+            <h3>한 채널에는 한 콘텐츠만</h3>
+            <ul>
+              <li>클릭률, 시청 지속 시간, 평균 조회율 성적을 봅니다.</li>
+              <li>새 콘텐츠는 새 채널로 운영합니다.</li>
+              <li>규칙적으로 업로드합니다.</li>
+            </ul>
+          </article>
+          <article class="tip-card">
+            <h3>최신 트렌드 빨리 읽기</h3>
+            <ul>
+              <li>빠르게 트렌드에 대응합니다.</li>
+              <li>내 채널 콘텐츠와 결합합니다.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </section>
+  </main>
+</body>
+</html>

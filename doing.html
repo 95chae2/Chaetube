@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Doing - 제목설계 노트</title>
+  <style>
+    :root { --ink:#15171b; --line:#eadfce; --paper:#fffdfa; --red:#db2f2f; --shadow:0 18px 44px rgba(45,36,22,.08); }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:var(--paper); font-family:Pretendard, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing:0; }
+    a { color:inherit; text-decoration:none; }
+    .site-header { position:sticky; top:0; z-index:20; border-bottom:1px solid rgba(25,25,25,.08); background:rgba(255,253,250,.92); backdrop-filter:blur(16px); }
+    .header-inner { max-width:1180px; min-height:76px; margin:0 auto; padding:0 28px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .brand { display:flex; align-items:center; gap:13px; font-weight:900; font-size:22px; white-space:nowrap; }
+    .brand-mark { width:34px; height:24px; border-radius:6px; display:grid; place-items:center; color:white; background:var(--red); }
+    .brand-mark svg { width:15px; height:15px; fill:currentColor; margin-left:2px; }
+    .nav { display:flex; align-items:center; justify-content:center; gap:clamp(18px,3vw,42px); font-size:14px; font-weight:750; color:#33363d; flex:1; }
+    .nav a:hover { color:var(--red); }
+    .primary-button { border-radius:7px; color:white; background:#141417; padding:13px 18px; display:inline-flex; align-items:center; justify-content:center; font-size:14px; font-weight:850; white-space:nowrap; }
+    .section-inner { max-width:1060px; margin:0 auto; padding:86px 28px; }
+    .kicker { margin:0 0 22px; color:var(--red); font-size:13px; font-weight:950; text-transform:uppercase; }
+    h1 { max-width:880px; margin:0 0 42px; font-size:clamp(36px,5vw,58px); line-height:1.12; font-weight:950; }
+    .jump-nav { display:flex; flex-wrap:wrap; gap:10px; margin:-18px 0 46px; }
+    .jump-nav a { border:1px solid #e3d4bd; border-radius:7px; background:#fff; padding:12px 14px; color:#252932; font-size:14px; font-weight:900; box-shadow:0 10px 24px rgba(45,36,22,.05); }
+    .jump-nav a:hover { border-color:var(--red); color:var(--red); }
+    .category { margin-top:52px; scroll-margin-top:96px; }
+    .category:first-of-type { margin-top:0; }
+    .category h2 { margin:0 0 20px; font-size:32px; line-height:1.18; font-weight:950; }
+    .category-lead { max-width:820px; margin:0 0 20px; color:#4f5560; line-height:1.7; font-weight:650; }
+    .pattern-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+    .pattern-card { border:1px solid var(--line); border-radius:8px; background:white; padding:22px; box-shadow:var(--shadow); }
+    .pattern-formula { margin:0 0 12px; line-height:1.35; color:#15171b; }
+    .formula-prefix { display:block; margin-bottom:4px; color:#7b818b; font-size:13px; font-weight:800; }
+    .formula-doing { display:block; font-size:23px; font-weight:950; }
+    .pattern-examples { margin:0; padding-left:20px; color:#4f5560; line-height:1.66; font-weight:650; }
+    @media (max-width:900px) { .header-inner { height:auto; padding:16px 20px; flex-wrap:wrap; } .nav { order:3; width:100%; justify-content:flex-start; gap:22px; overflow-x:auto; } .pattern-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html#top"><span class="brand-mark"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5-11-6.5Z"></path></svg></span>제목설계 노트</a>
+      <nav class="nav" aria-label="상단 메뉴">
+        <a href="index.html#formula">공식</a>
+        <a href="index.html#guide">구체화 가이드</a>
+        <a href="index.html#workflow">워크플로우</a>
+        <a href="ab.html">A/B</a>
+        <a href="click-kick.html">Click kick</a>
+        <a href="doing.html">Doing</a>
+      </nav>
+      <a class="primary-button" href="index.html#composer">제목 조합기</a>
+    </div>
+  </header>
+  <main>
+    <section class="section-inner">
+      <p class="kicker">Doing</p>
+      <h1>Doing은 영상을 어떤 방식으로 보여줄지 알려줍니다.</h1>
+      <nav class="jump-nav" aria-label="Doing 바로가기">
+        <a href="#list">1. 리스트 업</a>
+        <a href="#negative">2. 네거티브</a>
+        <a href="#hide">3. 감추기</a>
+        <a href="#experience">4. 경험</a>
+        <a href="#howto">5. How to</a>
+      </nav>
+
+      <section id="list" class="category">
+        <h2>1. 리스트 업</h2>
+        <p class="category-lead">숫자와 목록 표현으로 영상이 빠르게 정리된다는 느낌을 줍니다.</p>
+        <div class="pattern-grid">
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">Best [N]</span></p><ul class="pattern-examples"><li>초간단! 전신 스트레칭 끝판왕 BEST5</li><li>이쁜 쌍커풀 & 작은 코 연예인 베스트 3</li><li>안 써보면 모르는 삶의 질 떡상템 BEST 10</li></ul></article>
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">[N] 단계</span></p><ul class="pattern-examples"><li>돌아온 숨참기 1단계 도전해 보세요</li><li>엄청 매운 짬뽕 3단계 챌린지!</li><li>연어 천재들만 통과 할 수 있는 7단계 초성 퀴즈</li></ul></article>
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">[N] 가지</span></p><ul class="pattern-examples"><li>허벅지 안쪽살 빨리 빼는 운동 3가지</li><li>다이소의 베스트 쓰레기템 5가지ㅋㅋㅋㅋ</li><li>슬라임을 가지고 노는 14가지 유형♡</li></ul></article>
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">모음</span></p><ul class="pattern-examples"><li>재알못도 무조건 아는 유명한 재즈곡 모음</li><li>잠에 진심인 LCK와 구단 모음ㅋㅋㅋ</li><li>레전드 닉네임 모음 #shorts</li></ul></article>
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">[N]회차</span></p><ul class="pattern-examples"><li>내돈내산 약손명가 경락 10회차 후기</li><li>캡틴과 섀도어 신규 5차!</li><li>수염 레이저 제모 3회차 후기</li></ul></article>
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">[N]+[세는 단위]</span></p><ul class="pattern-examples"><li>수도권 숨은 비경 3곳</li><li>한일전 역대급 명장면 5개 따라해봤음</li><li>인기치킨 3종류를 한 번에!</li></ul></article>
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">리스트</span></p><ul class="pattern-examples"><li>여행필수 꿀템 리스트 10가지</li><li>출산용품 준비 리스트</li><li>돈키호테 쇼핑리스트 177개</li></ul></article>
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">순서</span></p><ul class="pattern-examples"><li>운전자 대부분이 모르는 주차 순서!</li><li>여자가 이별을 결심하는 과정</li><li>아파트 매매 계약부터 잔금까지 프로세스</li></ul></article>
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">Top [N]</span></p><ul class="pattern-examples"><li>절대 검색하면 안되는 단어 TOP4</li><li>절대로 검색해서는 안 되는 단어 TOP 3</li><li>사회실험 중 가장 분노했던 순간 TOP5</li></ul></article>
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">핵심 [N]</span></p><ul class="pattern-examples"><li>경제적 자유를 달성하는 핵심 비법 5가지</li><li>전문점 짬뽕의 3가지 핵심 비밀</li><li>장발 핵심 손질법 4가지</li></ul></article>
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">사실들</span></p><ul class="pattern-examples"><li>알고보면 더 재미있는 흥미로운 사실들</li><li>브랜드의 4가지 사실들</li><li>우리가 몰랐던 신기한 사실들</li></ul></article>
+        </div>
+      </section>
+
+      <section id="negative" class="category">
+        <h2>2. 네거티브</h2>
+        <p class="category-lead">실패, 손실, 충격, 위기처럼 피하고 싶은 결과를 보여줘 클릭을 유도합니다.</p>
+        <div class="pattern-grid">
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">최악인 이유</span></p><ul class="pattern-examples"><li>기계식 주차가 최악인 이유</li><li>패널티킥 규정이 골키퍼들에게 최악인 이유</li><li>과민대장증후군이 최악의 질병인 이유</li></ul></article>
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">망한다</span></p><ul class="pattern-examples"><li>이것 때문에 망한다</li><li>분양권 전매 - 완전 망했다</li><li>병해충 바퀴벌레 초간단 퇴치방법</li></ul></article>
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">없다고?</span></p><ul class="pattern-examples"><li>일본 온천에는 진짜 온천이 없다고?</li><li>뽀로로는 고글과 상관이 없다고?</li><li>전기차 냉각수 교환은 신경 쓸 필요가 없다고?!</li></ul></article>
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">안되는 이유</span></p><ul class="pattern-examples"><li>대형 갑오징어를 키우면 안되는 이유</li><li>잘해주면 안되는 이유 4가지</li><li>고양이와 모기장에서 자면 안되는 이유</li></ul></article>
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">멘붕 / 충격 / 경악</span></p><ul class="pattern-examples"><li>40년 간 사람들 멘붕시킨 장난</li><li>돈가스를 보고 충격</li><li>전 세계가 경악</li></ul></article>
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">비상 / 실패 / 위기</span></p><ul class="pattern-examples"><li>위험 번지기 시작, 비상</li><li>우리가 쇼핑을 매번 실패하는 이유</li><li>한국행 최대위기</li></ul></article>
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">발칵 / 뒤집어집니다</span></p><ul class="pattern-examples"><li>체조계를 발칵 뒤집은 작은 아이</li><li>전국이 발칵 뒤집힌 쪽파김치 레시피</li><li>피부 다 뒤집어집니다</li></ul></article>
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">최악의 ~ [N] / Worst [N]</span></p><ul class="pattern-examples"><li>한국 최악의 디자인 Top5</li><li>최악의 키보드 모음</li><li>승무원이 싫어하는 WORST 3 승객 유형</li></ul></article>
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">미쳤다 / 하지 마세요 / 대환장</span></p><ul class="pattern-examples"><li>푸짐함이 미쳤다</li><li>다리 밑에서 절대 낚시 하지 마세요</li><li>대환장 좀비 티키타카</li></ul></article>
+        </div>
+      </section>
+
+      <section id="hide" class="category">
+        <h2>3. 감추기</h2>
+        <p class="category-lead">답을 바로 말하지 않고 궁금증을 남깁니다. 이유, 정체, 이것, 그런데 같은 표현이 중심입니다.</p>
+        <div class="pattern-grid">
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">비싸게 삽니다</span></p><ul class="pattern-examples"><li>에어컨 모르고 구매하시면 100만원 비싸게 삽니다</li><li>95%가 몰라서 비싸게 삽니다</li><li>차량가 최대 13% 더 비싸게 삽니다</li></ul></article>
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">까닭은? / 뭐 길래 / 무슨 일?</span></p><ul class="pattern-examples"><li>러시아가 동쪽으로 간 까닭은?</li><li>이게 뭐길래 이렇게 인기가 많죠?</li><li>잘못 찾아들어간 옆집 무슨 일이</li></ul></article>
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">하는 이유 / 알려드리겠습니다</span></p><ul class="pattern-examples"><li>따개비를 꼭 제거해야 하는 이유</li><li>국민연금 많이 받는 법 알려드리겠습니다</li><li>두 패션의 문제점을 알려드리겠습니다</li></ul></article>
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">손해봅니다 / 정체는?</span></p><ul class="pattern-examples"><li>이거 모르고 사면 몇억 손해봅니다</li><li>하늘에서 내리는 이것의 정체는?</li><li>검은 벌레의 정체는?</li></ul></article>
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">하는 ‘이것’ / ㅇㅇㅇ / 따로 있다</span></p><ul class="pattern-examples"><li>눈영양제보다 추천하는 ‘이것’</li><li>대놓고 ㅇㅇㅇㅇ 하겠다고 통보</li><li>턱걸이 비밀! 방법이 따로 있다</li></ul></article>
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">해 봤더니… / 그런데… / 이렇게</span></p><ul class="pattern-examples"><li>영어 잘하는 척 해봤더니…</li><li>연비 좋게 한다고 했는데 그런데..</li><li>양배추를 이렇게 만들었더니</li></ul></article>
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">바로 ‘이것’</span></p><ul class="pattern-examples"><li>간이 망가질 수 있는 영양제는 바로 이것</li><li>악취를 없애는 방법은 바로 이것</li><li>믹스커피보다 더 나쁜 커피는 바로 이것</li></ul></article>
+        </div>
+      </section>
+
+      <section id="experience" class="category">
+        <h2>4. 경험</h2>
+        <p class="category-lead">직접 해봤다, 가봤다, 느꼈다처럼 대리경험과 검증감을 줍니다.</p>
+        <div class="pattern-grid">
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">직접~ + 그런데…</span></p><ul class="pattern-examples"><li>제작진이 직접 밝혔다 그런데...</li><li>직접 낚아온 샤넬 언박싱</li><li>자살예방센터에 직접 전화해봤습니다</li></ul></article>
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">결과… / 느낀 점 / 실제 후기</span></p><ul class="pattern-examples"><li>비교한 결과 top3</li><li>강남 살고 느낀 점</li><li>키 크는 수술 실제 후기</li></ul></article>
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">직접 해봤습니다 / 가봤습니다 / 사봤습니다</span></p><ul class="pattern-examples"><li>24시간 피시방 먹방 직접 해봤습니다</li><li>분식집 직접 가봤습니다</li><li>사기 직구 직접 사봤습니다</li></ul></article>
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">했는데… / 갔는데… / 몰랐습니다</span></p><ul class="pattern-examples"><li>시원해진다고 했는데…</li><li>다시 고등학교를 갔는데…</li><li>이렇게 무서울 줄 몰랐습니다…</li></ul></article>
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">하게 된 계기 / 원인 / 알아보기</span></p><ul class="pattern-examples"><li>유튜브 시작하게 된 계기</li><li>방귀의 원인과 해결책</li><li>공항 패션 알아보기</li></ul></article>
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">팩트 / 깨달은 점</span></p><ul class="pattern-examples"><li>반박 불가능한 팩트</li><li>100% 팩트</li><li>돈 버는 법에 405만원 쓰고 깨달은 점</li></ul></article>
+        </div>
+      </section>
+
+      <section id="howto" class="category">
+        <h2>5. How to</h2>
+        <p class="category-lead">방법, 비법, 꿀팁처럼 정보형 제목을 만듭니다. 재미 70%, 정보 30%의 균형이 좋습니다.</p>
+        <div class="pattern-grid">
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">간단한 방법 / 활용하기 / 됩니다</span></p><ul class="pattern-examples"><li>33가지 간단한 방법</li><li>공간을 효율적으로 활용하기</li><li>이거 하나면 됩니다</li></ul></article>
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">하는 꿀팁 / 하는 방법 / 하는 비법</span></p><ul class="pattern-examples"><li>남자 머리 쉽게 스타일링하는 꿀팁</li><li>스마트폰 빠르게 충전하는 방법</li><li>항공권을 가장 저렴하게 구매하는 비법</li></ul></article>
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">딱 한가지 방법 / 할 수 있습니다 / 끝까지 보세요</span></p><ul class="pattern-examples"><li>가장 쉽게 하는 딱 한가지 방법</li><li>호구를 면할 수 있습니다</li><li>끝까지 보세요</li></ul></article>
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">~만 알고 있다는 / 끝내기 / 내린 결론</span></p><ul class="pattern-examples"><li>인싸들만 알고 있다는</li><li>한편으로 끝내기</li><li>관찰 후 내린 결론</li></ul></article>
+          <article class="pattern-card"><p class="pattern-formula"><span class="formula-prefix">Audience Benefit + Click kick +</span><span class="formula-doing">알려드립니다 / 특징 / 요약</span></p><ul class="pattern-examples"><li>정확히 알려드립니다</li><li>초보 캠핑러들의 특징</li><li>5권 분량 핵심 요약</li></ul></article>
+        </div>
+      </section>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A/B - 제목설계 노트</title>
+  <style>
+    :root { --ink:#15171b; --muted:#62666f; --line:#eadfce; --paper:#fffdfa; --red:#db2f2f; --shadow:0 18px 44px rgba(45,36,22,.08); }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:var(--paper); font-family:Pretendard, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; letter-spacing:0; }
+    a { color:inherit; text-decoration:none; }
+    .site-header { position:sticky; top:0; z-index:20; border-bottom:1px solid rgba(25,25,25,.08); background:rgba(255,253,250,.92); backdrop-filter:blur(16px); }
+    .header-inner { max-width:1180px; min-height:76px; margin:0 auto; padding:0 28px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .brand { display:flex; align-items:center; gap:13px; font-weight:900; font-size:22px; white-space:nowrap; }
+    .brand-mark { width:34px; height:24px; border-radius:6px; display:grid; place-items:center; color:white; background:var(--red); }
+    .brand-mark svg { width:15px; height:15px; fill:currentColor; margin-left:2px; }
+    .nav { display:flex; align-items:center; justify-content:center; gap:clamp(18px,3vw,42px); font-size:14px; font-weight:750; color:#33363d; flex:1; }
+    .nav a:hover { color:var(--red); }
+    .primary-button { border-radius:7px; color:white; background:#141417; padding:13px 18px; display:inline-flex; align-items:center; justify-content:center; font-size:14px; font-weight:850; white-space:nowrap; }
+    .section-inner { max-width:1060px; margin:0 auto; padding:86px 28px; }
+    .kicker { margin:0 0 22px; color:var(--red); font-size:13px; font-weight:950; text-transform:uppercase; }
+    h1 { max-width:880px; margin:0 0 42px; font-size:clamp(36px,5vw,58px); line-height:1.12; font-weight:950; }
+    .category { margin-top:52px; }
+    .category:first-of-type { margin-top:0; }
+    .category h2 { margin:0 0 20px; font-size:32px; line-height:1.18; font-weight:950; }
+    .category-lead { max-width:820px; margin:0 0 20px; color:#4f5560; line-height:1.7; font-weight:650; }
+    .pattern-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+    .pattern-card { border:1px solid var(--line); border-radius:8px; background:white; padding:22px; box-shadow:var(--shadow); }
+    .pattern-card.wide { grid-column:1 / -1; }
+    .pattern-formula { margin:0 0 12px; font-size:19px; line-height:1.35; font-weight:950; color:#15171b; }
+    .pattern-example { margin:0 0 10px; border-left:5px solid var(--red); padding-left:12px; color:#22262e; line-height:1.55; font-weight:850; }
+    .pattern-note { margin:0 0 8px; color:#5b626d; line-height:1.62; font-weight:650; }
+    .pattern-extra { margin:0; color:#7a4b13; line-height:1.62; font-weight:750; }
+    .tag-row { display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
+    .text-chip { border:1px solid #e3d4bd; border-radius:7px; background:#fff; padding:9px 11px; color:#252932; font-weight:850; line-height:1.25; }
+    .jump-nav { display:flex; flex-wrap:wrap; gap:10px; margin:-18px 0 46px; }
+    .jump-nav a { border:1px solid #e3d4bd; border-radius:7px; background:#fff; padding:12px 14px; color:#252932; font-size:14px; font-weight:900; box-shadow:0 10px 24px rgba(45,36,22,.05); }
+    .jump-nav a:hover { border-color:var(--red); color:var(--red); }
+    .category { scroll-margin-top:96px; }
+    @media (max-width:900px) { .header-inner { height:auto; padding:16px 20px; flex-wrap:wrap; } .nav { order:3; width:100%; justify-content:flex-start; gap:22px; overflow-x:auto; } .pattern-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html#top"><span class="brand-mark"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5-11-6.5Z"></path></svg></span>제목설계 노트</a>
+      <nav class="nav" aria-label="상단 메뉴">
+        <a href="index.html#formula">공식</a>
+        <a href="index.html#guide">구체화 가이드</a>
+        <a href="index.html#workflow">워크플로우</a>
+        <a href="ab.html">A/B</a>
+        <a href="click-kick.html">Click kick</a>
+        <a href="doing.html">Doing</a>
+      </nav>
+      <a class="primary-button" href="index.html#composer">제목 조합기</a>
+    </div>
+  </header>
+  <main>
+    <section class="section-inner">
+      <p class="kicker">Audience Benefit</p>
+      <h1>A/B는 시청자가 얻는 이득을 먼저 약속합니다.</h1>
+      <nav class="jump-nav" aria-label="A/B 소구점 바로가기">
+        <a href="#benefit">1. 이득</a>
+        <a href="#new-info">2. 새로운 정보</a>
+        <a href="#secret">3. 비밀</a>
+        <a href="#threat">4. 협박</a>
+        <a href="#empathy">5. 공감</a>
+      </nav>
+      <section id="benefit" class="category">
+        <h2>1. 이득 <span style="font-size:18px; font-weight:800; color:#62666f;">(이 영상을 시청함으로써 어떤 이득을 얻을 수 있는가?)</span></h2>
+        <p class="category-lead">이 영상을 시청함으로써 어떤 이득을 얻을 수 있는지 분명하게 말합니다. 상황, 감정, 숫자, 계층을 붙이면 바로 이해됩니다.</p>
+        <div class="pattern-grid">
+          <article class="pattern-card"><p class="pattern-formula">[상황]하면 N 동안 사용 가능한~</p><p class="pattern-example">한 번 사면 6개월 동안 사용 가능한 손 세정제</p><p class="pattern-note">구체적인 상황을 수치로 넣어서 AB를 만듭니다.</p><p class="pattern-extra">혼자 가능한 25만원으로 8평 원룸 인테리어 하기</p></article>
+          <article class="pattern-card"><p class="pattern-formula">주말 오후 [생활]하며 [감정]해지기 좋은~</p><p class="pattern-example">주말 오후 감상하며 노래하기 좋은 온실카페</p><p class="pattern-note">추천 콘텐츠를 감정과 상황 예시로 이해하게 합니다.</p><p class="pattern-extra">비 오는 금요일 저녁 혼술하며 듣기 좋은 차분한 음악</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[감정] 이것만 있어도 된다고?</p><p class="pattern-example">아니 진짜 이것만 있어도 된다고?</p><p class="pattern-note">썸네일 후기에서 주로 사용합니다. 영상 제목에서는 더 구체화해야 합니다.</p><p class="pattern-extra">아니 정말 그게 가능하다고? 나만 몰랐어?</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[계층]한테 [상황]하면 꼭 가는~</p><p class="pattern-example">부장한테 깨지면 꼭 가는 미친 매운 닭발</p><p class="pattern-note">특정 계층과 상황을 함께 제시해 장면을 빠르게 떠올리게 합니다.</p><p class="pattern-extra">칼퇴하면서도 직장동료들에게 사랑받을 수 있는 인간관계법</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[감정]을 이겨낼 수 있는 간단한~</p><p class="pattern-example">우울을 이겨낼 수 있는 간단한 습관 3가지</p><p class="pattern-note">감정 표현을 넣어서 시청자가 얻는 이득을 극대화합니다.</p><p class="pattern-extra">무의식에 침투하는 사람 홀리는 화법 Best 5</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[계층]이 알아 둬야 하는~</p><p class="pattern-example">왕초보가 알아 둬야 하는 단계별 체크포인트</p><p class="pattern-note">구체적인 계층을 제시하여 이득을 한 번에 이해시킵니다.</p><p class="pattern-extra">요즘 옷 잘입는 남자들이 절대 안 입는 셔츠 스타일</p></article>
+          <article class="pattern-card"><p class="pattern-formula">N일에 N시간이면 [성과] 추가 가능~</p><p class="pattern-example">1주일에 2시간이면 월 100만원 수익 가능한 부업</p><p class="pattern-note">시간에 시간을 붙여 어떤 성과를 낼 수 있는지 구체적으로 제안합니다.</p><p class="pattern-extra">3일 교육받고 월 300 가능한 중장년 재취업 직업</p></article>
+          <article class="pattern-card"><p class="pattern-formula">N초만에 [감정] 터지는 레전드~</p><p class="pattern-example">10초만에 웃음 터지는 레전드 웃긴 썰 모음</p><p class="pattern-note">감정에 도달하는 시간을 제시해 쉽게 보이게 합니다.</p><p class="pattern-extra">딱 1회차로 최고 난이도 스텔스 솔플로 깨는 방법</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[계층]은 꼭 확인해봐야 하는~</p><p class="pattern-example">직장인은 꼭 확인해야 하는 절세 방법</p><p class="pattern-note">타깃 시청자를 콕 찍어 이득을 알리는 방식은 효과가 큽니다.</p><p class="pattern-extra">자영업자는 절대 놓쳐선 안 될 정부지원금 3가지</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[상황] 때 틀어 놓으면 시간 금방 가는~</p><p class="pattern-example">일할 때 틀어 놓으면 시간 금방 가는 작업송 100곡 연속재생</p><p class="pattern-note">영상의 사용 목적을 제목에서 명확하게 제시합니다.</p><p class="pattern-extra">집중력 폭발시키는 뇌과학적 화이트 노이즈</p></article>
+          <article class="pattern-card"><p class="pattern-formula">N원에 [감정]하는 최상의~</p><p class="pattern-example">35,000원에 느끼는 최상의 만족감</p><p class="pattern-note">좋은 감정에 가격과 기간을 넣어 구체화합니다.</p><p class="pattern-extra">세무비용 100만원 절약하고 발 뻗고 잠자는 방법</p></article>
+          <article class="pattern-card"><p class="pattern-formula">상위 N% [계층]을 둔 [계층]의~</p><p class="pattern-example">상위 1%의 학생을 둔 부모들의 교육 방법</p><p class="pattern-note">상위/하위 퍼센트는 계층을 간단히 나누고 주목도를 올립니다.</p><p class="pattern-extra">8분 만에 상위 10% 아나운서처럼 말할 수 있는 간단한 방법</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[계층] N%가 모르는~</p><p class="pattern-example">스마트스토어 위탁판매자 98%가 모르는 소싱 방법</p><p class="pattern-note">계층과 퍼센트를 넣어 시청자가 그 안에 포함되는지 관심을 유도합니다.</p><p class="pattern-extra">MZ들 80%는 올리브영이 아닌 여기서 50% 싸게 구입합니다</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[계층]같은 [성과]를 확실히 고쳤던~</p><p class="pattern-example">아이 같은 말투를 확실히 고쳤던 말 잘하는 방법</p><p class="pattern-note">성과를 이해시키기 위해 특정 계층을 예로 들어 빠른 이해를 제공합니다.</p><p class="pattern-extra">찌질남을 훈남으로 확실히 변신시켜줬던 데일리 코디</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[상황]을 결정한 [계층]의 마지막~</p><p class="pattern-example">폐업을 결정한 자영업자의 마지막 하루</p><p class="pattern-note">상황과 계층을 결합해 구체적인 이득을 제시합니다.</p><p class="pattern-extra">전국 냥집사들은 이 11살 소녀를 본받아야 합니다</p></article>
+          <article class="pattern-card"><p class="pattern-formula">N년간 단 한 번도 [행동] 적 없다는~</p><p class="pattern-example">6년간 단 한 번도 세차해 본 적 없다는 사람의 차 상태</p><p class="pattern-note">기간을 강조하려면 행동이 일반적이지 않게 표현합니다.</p><p class="pattern-extra">3년 동안 좋소기업 버티다가 퇴사 결정한 딱 한가지 이유</p></article>
+          <article class="pattern-card"><p class="pattern-formula">N주간 [성과]를 끌어 봤더니~</p><p class="pattern-example">2주간 술을 끊어 봤더니 달라진 피부 상태</p><p class="pattern-note">기간과 성과를 제시하면 콘텐츠가 궁금해집니다.</p><p class="pattern-extra">한 달간 모든 도파민 자극을 끊었더니 생기는 변화</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[이름]이 [무엇]을 [행동]하는 기준</p><p class="pattern-example">워렌 버핏이 주식을 매도하는 기준</p><p class="pattern-note">권위가 부족한 초보 채널은 유명인을 인용하면 신뢰도가 올라갑니다.</p><p class="pattern-extra">신동엽이 말하는 술 취하지 않는 비법</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[성과] 시간을 획기적으로 줄여줬던~</p><p class="pattern-example">업무 시간을 획기적으로 줄여줬던 사무 자동 앱</p><p class="pattern-note">시간 낭비를 줄인다는 AB는 관심도를 높일 수 있습니다.</p><p class="pattern-extra">아침 잠을 한 번에 해결해줬던 레전드 5초의 법칙</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[계층]들이 [성과]를 알고 연애 성공</p><p class="pattern-example">여자 호감 신호를 알고 연애 성공한 방법</p><p class="pattern-note">특정 계층이 관심 가질 성과를 제목으로 표현합니다.</p><p class="pattern-extra">여자들이 환장하는 섬세한 배려, 이 말투 하나로 선택받았습니다</p></article>
+          <article class="pattern-card"><p class="pattern-formula">N월에만 신청할 수 있는 N가지~</p><p class="pattern-example">4월에만 신청할 수 있는 3가지 정부 지원 혜택</p><p class="pattern-note">기간을 한정해 지금 꼭 봐야 하는 이유를 제공합니다.</p><p class="pattern-extra">4월까지만 볼 수 있는 넷플릭스 한국 영화 Top 10</p></article>
+          <article class="pattern-card"><p class="pattern-formula">N년 전에 미리 [성과] 했더라면~</p><p class="pattern-example">3년 전에 미리 알았더라면 이렇게 망하지 않았을 3가지</p><p class="pattern-note">과거 경험을 알리는 제목은 초보 채널에게 추천하는 표현입니다.</p><p class="pattern-extra">미리 3년 전에 사놨던 모두가 말렸던 ‘이것’이 인생을 바꿨습니다</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[계층]였던 내가 한 달만에 [성과]했던~</p><p class="pattern-example">영포자였던 내가 한 달만에 수능 1등급 했던 영어 공부법</p><p class="pattern-note">‘내가’ 성공한 방법은 과거의 나도 시청자 입장이라는 점을 알려야 합니다.</p><p class="pattern-extra">글 안 써본 사람이 글쓰기로 월 455만원 벌고 깨달은 점</p></article>
+          <article class="pattern-card"><p class="pattern-formula">N% [감정]하는 진짜~</p><p class="pattern-example">써보면 1,000% 만족하는 진짜 커피머신</p><p class="pattern-note">퍼센트가 제목 처음에 나오면 강한 강조 효과를 냅니다.</p><p class="pattern-extra">98%의 여자들이 무조건 당해봤다는 난감한 상황</p></article>
+        </div>
+      </section>
+
+      <section id="new-info" class="category">
+        <h2>2. 새로운 정보</h2>
+        <p class="category-lead">새롭게 알게 될 관점, 트렌드, 최초성, 바뀐 정책처럼 “지금 보면 업데이트되는 정보”를 약속합니다.</p>
+        <div class="pattern-grid">
+          <article class="pattern-card"><p class="pattern-formula">인공지능이 [상황] 알려주는 획기적인~</p><p class="pattern-example">인공지능이 알려주는 획기적인 시금치 무침 레시피</p><p class="pattern-note">AI가 이런 것도 알려준다는 놀라움을 활용합니다.</p><p class="pattern-extra">챗GPT가 추천해주는 3,000만원대 자동차 Top 3</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[이름]이 새롭게 밝힌~</p><p class="pattern-example">고현정이 새롭게 밝힌 연예계 악습</p><p class="pattern-note">유명인을 인용한 콘텐츠는 초보 채널에 권위를 부여합니다.</p><p class="pattern-extra">빠니보틀도 여행하기 꺼려했던 그 나라, 가봤더니 이유가 있네요</p></article>
+          <article class="pattern-card"><p class="pattern-formula">N부터 완전 새롭게 바뀐~</p><p class="pattern-example">2024년 5월부터 완전 새롭게 바뀐 돈 아끼는 정책</p><p class="pattern-note">시점과 변화를 붙이면 정보의 최신성이 살아납니다.</p><p class="pattern-extra">2024년 인생을 자동화주는 인공지능 툴 12가지</p></article>
+          <article class="pattern-card"><p class="pattern-formula">N 만에 [상황]으로 [성과]가 가능한 신개념</p><p class="pattern-example">한 달만에 영상으로 월 100만원 무조건 버는 신개념 부업</p><p class="pattern-note">시간을 구체적으로 제시하고 새로운 정보로 만든 성과를 강조합니다.</p><p class="pattern-extra">10분만에 보고서, PPT 뚝딱! 모르면 도태되는 직장인 필수 AI 앱</p></article>
+          <article class="pattern-card"><p class="pattern-formula">국내 최초로 [상황]한 전자제품 리뷰</p><p class="pattern-example">국내 최초로 상륙한 애플의 VR 비전프로 싸게 사는 방법</p><p class="pattern-note">최초성은 제품/이슈 콘텐츠에서 강력한 새로운 정보가 됩니다.</p><p class="pattern-extra">세계 최초로 한글버전 애플VR 기기 분석해봤습니다</p></article>
+          <article class="pattern-card"><p class="pattern-formula">이 세상의 [상황]이 아니듯한 [감정]하는~</p><p class="pattern-example">이 세상의 먹방이 아니듯한 신들린 대왕 돈까스 챌린지</p><p class="pattern-note">익숙한 콘텐츠라도 높은 평가를 스스로 내리면 혹하게 됩니다.</p><p class="pattern-extra">이 세상의 음식이 아닌듯한 미쳐버린 계란 요리 3가지</p></article>
+          <article class="pattern-card"><p class="pattern-formula">초전도체에 대한 [감정] 새로운~</p><p class="pattern-example">초전도체에 대한 믿기 힘든 새로운 루머 5가지</p><p class="pattern-note">새로운 트렌드 키워드는 유튜브에서 빠르게 성과를 내는 소재입니다.</p><p class="pattern-extra">(4월 기준) 총선판에 펼쳐진 새로운 인물이 판을 뒤흔드는 이유</p></article>
+          <article class="pattern-card"><p class="pattern-formula">올 해 아무 준비 없이 [상황]하는 새로운 트렌드</p><p class="pattern-example">2024년 아무 계획 없이 유튜브 시작하는 새로운 트렌드</p><p class="pattern-note">인기 있는 시점에 쉽게 할 수 있는 새로운 정보를 제시합니다.</p><p class="pattern-extra">(5월 기준) 세금 1도 몰라도 종합소득세 신고 10분, 신개념 신고법</p></article>
+        </div>
+      </section>
+
+      <section id="secret" class="category">
+        <h2>3. 비밀</h2>
+        <p class="category-lead">숨겨진 이유, 모르는 방법, 특정 대상만 알고 있는 정보를 암시합니다. 줄임표, 질문, ‘이것’ 표현이 잘 맞습니다.</p>
+        <div class="pattern-grid">
+          <article class="pattern-card"><p class="pattern-formula">[상황]한 [이름]에게 물었더니…</p><p class="pattern-example">아시아 컵 4강 탈락한 클린스만에게 물었더니...</p><p class="pattern-note">말 줄임표는 티징의 가장 기본 형태입니다.</p><p class="pattern-extra">매일 술 마시는 신동엽에게 해장 방법을 물었더니…</p></article>
+          <article class="pattern-card"><p class="pattern-formula">어차피 알려줘도 [행동]하는~</p><p class="pattern-example">어차피 알려줘도 아무도 안 하는 챗GPT로 버는 방법</p><p class="pattern-note">회의적 티징을 결합한 방식입니다.</p><p class="pattern-extra">알아도 어차피 못하는 부업, 월 10만원부터 쉽게 시작하는 법</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[이름]도 [행동]해본 적 없는~</p><p class="pattern-example">그 어떤 여행 유튜버도 간 적 없는 일본의 희한한 도시</p><p class="pattern-note">특정 대상을 세부적으로 정하고 그 대상이 하지 않은 일을 넣습니다.</p><p class="pattern-extra">유재석이 절대로 하지 않는다는 대화법</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[계층]만 [행동]하는~</p><p class="pattern-example">OOO만 바꿨을 뿐인데 주문 폭발한 메뉴 만드는 방법</p><p class="pattern-note">‘만’을 써서 타깃 시청자를 콕 찍으면 효과가 올라갑니다.</p><p class="pattern-extra">개미들만 백억 대 손실봤다는 우량주로 알려진 주식 5가지</p></article>
+          <article class="pattern-card"><p class="pattern-formula">N 만에 [상황]으로 N 라고?</p><p class="pattern-example">한 달만에 영상으로 100만원?</p><p class="pattern-note">구체적인 숫자와 성과를 질문으로 던져 스스로 놀라게 합니다.</p><p class="pattern-extra">일주일에 한 시간만 하면 10kg 무조건 감량된다고?</p></article>
+          <article class="pattern-card"><p class="pattern-formula">이런 말 자주 듣는다면 당신의 [계층]은~</p><p class="pattern-example">이런 말 자주 듣는다면 당신의 자녀는 영재입니다</p><p class="pattern-note">시청자가 듣고 싶어하는 말을 골라 해준다는 목표로 씁니다.</p><p class="pattern-extra">이런 반응 자주 본다면 당신의 배우자는 바람피고 있습니다</p></article>
+          <article class="pattern-card"><p class="pattern-formula">N살에 [상황] 하고 [행동]했습니다</p><p class="pattern-example">41살에 건강검진 받고 버림받았습니다</p><p class="pattern-note">전혀 관련 없어 보이는 상황과 행동을 연결합니다.</p><p class="pattern-extra">20살에 빵 사먹다가 감옥 갈 뻔했습니다</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[계층]도 N [성과]를 올린다는 ‘이것’</p><p class="pattern-example">일반인도 억대 수익을 올리는 ‘이것’</p><p class="pattern-note">비밀을 ‘이것’이라고 표현해 티징을 높입니다.</p><p class="pattern-extra">장사 처음 시작하는 사람도 월 매출 1000을 찍는다는 ‘이것’</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[계층]에게 [행동]했을 때는 이렇게 해도 됩니다</p><p class="pattern-example">여친에게 차였을 때는 이렇게 해도 됩니다</p><p class="pattern-note">‘이렇게’가 티징입니다. 상반된 계층과 행동 조합이면 효과가 큽니다.</p><p class="pattern-extra">아기가 하루 종일 울 때는 이렇게 해도 됩니다</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[계층] 다 떠나가는 ‘이런 [행동]’</p><p class="pattern-example">주변 사람 다 떠나가는 ‘이런 말투’</p><p class="pattern-note">‘이런 AB’라고 표현하는 것이 핵심입니다.</p><p class="pattern-extra">나를 싫어하는 사람도 호감가게 만드는 ‘이런 습관’</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[계층]에 시작해서 [성과]한 [사람]이 반복적으로~</p><p class="pattern-example">60대에 시작해 10억 번 명퇴자가 아침마다 한 일</p><p class="pattern-note">구체적인 사람이 성과를 위해 반복했던 일을 씁니다.</p><p class="pattern-extra">30대에 취업 못하고 알바로 먹고사는 내가 매일 했던 악습</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[이름]도 [행동]한다는~</p><p class="pattern-example">기안84도 애지중지 신고 다닌다는 100만원 대 운동화</p><p class="pattern-note">리뷰 콘텐츠에 유명인을 넣어 관심도를 늘리는 방법입니다.</p><p class="pattern-extra">백종원도 마셔보고 바로 계약하자 했다는 막걸리</p></article>
+          <article class="pattern-card"><p class="pattern-formula">다음은 무엇을 [행동] 하는 것일까?</p><p class="pattern-example">다음은 무엇을 먹는 소리일까?</p><p class="pattern-note">비밀을 질문으로 던지는 제목 표현 방법입니다.</p><p class="pattern-extra">대체 퇴근할 때 왜 이런 말을 할까?</p></article>
+          <article class="pattern-card"><p class="pattern-formula">이것 [행동]안하고 [상황]했다가 [성과]~</p><p class="pattern-example">‘이것’ 확인 안하고 부동산 샀다가 경매 넘어간 이유 3가지</p><p class="pattern-note">실패하거나 성공했던 딱 하나의 단어를 ‘이것’으로 표현합니다.</p><p class="pattern-extra">‘이런 것’도 모르고 창업했다가는 세금 폭탄</p></article>
+        </div>
+      </section>
+
+      <section id="threat" class="category">
+        <h2>4. 협박</h2>
+        <p class="category-lead">손실 경고, 금지문, 부정어법, 모순, 사회 합의 부정을 활용합니다. 놓치면 손해라는 감각을 줍니다.</p>
+        <div class="pattern-grid">
+          <article class="pattern-card"><p class="pattern-formula">이 따위로 [상황]하려면 하지 마세요</p><p class="pattern-example">이따위로 블로그하려면 하지 마세요</p><p class="pattern-note">하지 말라는 말에 강한 자극어를 붙인 2단계 협박입니다.</p><p class="pattern-extra">이정도 수준으로 글 쓸 거면 쓰지 마세요</p></article>
+          <article class="pattern-card"><p class="pattern-formula">절대로 ~ [행동] 하지 마세요</p><p class="pattern-example">절대로 샐러드 파스타 사먹지 마세요</p><p class="pattern-note">추천보다 금지로 사용하는 협박 패턴입니다.</p><p class="pattern-extra">돈 벌려면 절대 책 읽지 마세요</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[상황]했을 때 이걸 모르면 N% 호구됩니다</p><p class="pattern-example">교통사고 났을 때 이걸 모르면 98% 호구 됩니다</p><p class="pattern-note">모르면 당한다는 내용을 호구, 가난, 실패 같은 단어로 사용합니다.</p><p class="pattern-extra">창업할 때 이걸 모른다면 99% 폐업 당합니다</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[상황]하면 무조건 당하는~</p><p class="pattern-example">숫자 모르면 무조건 당하는 재래시장 판매 수법</p><p class="pattern-note">협박 제목에는 클릭 킥이 반드시 포함되어야 합니다.</p><p class="pattern-extra">의외로 당하는 치과 과잉진료</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[상황]에 [행동]하세요</p><p class="pattern-example">왕따에 익숙해지세요</p><p class="pattern-note">민감한 내용을 역설적으로 지릅니다. 영상 제목에서는 완화가 필요합니다.</p><p class="pattern-extra">해고를 감사히 여기세요</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[상황]하는 것보다 [감정]하는 상황</p><p class="pattern-example">생각하시는 것보다 더 기분 나쁜 상황</p><p class="pattern-note">정보 채널이 아니라면 협박과 공감으로 풀어낼 수 있습니다.</p><p class="pattern-extra">사람들이 아는 내용보다 더 잔인한 이야기</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[부정적 성과]한~ 그만둡니다</p><p class="pattern-example">3년 넘게 운영한 쇼핑몰 접습니다</p><p class="pattern-note">내가 실패한 이유는 초보 채널에게 효과가 좋은 제목입니다.</p><p class="pattern-extra">내가 1000만원 날리고 디저트 카페 창업을 중단한 이유</p></article>
+          <article class="pattern-card"><p class="pattern-formula">이렇게 [행동]하시면 N부터 인생 꼬입니다</p><p class="pattern-example">이렇게 하시면 20대부터 인생 꼬입니다</p><p class="pattern-note">본인의 사례를 가져와 협박을 네거티브 수준으로 낮춥니다.</p><p class="pattern-extra">이런 습관이 있다면 40살에도 저처럼 인생 망합니다</p></article>
+        </div>
+      </section>
+
+      <section id="empathy" class="category">
+        <h2>5. 공감</h2>
+        <p class="category-lead">쇼츠에서 특히 효과적입니다. 비교, 유형, 감정, 계층의 현실을 건드리면 빠르게 공감이 생깁니다.</p>
+        <div class="pattern-grid">
+          <article class="pattern-card"><p class="pattern-formula">N, N [계층]들의 너무나 다른~</p><p class="pattern-example">151cm, 173cm 여자들의 너무나 다른 삶</p><p class="pattern-note">비교군을 두는 방식의 제목입니다.</p><p class="pattern-extra">58kg, 120kg의 20대 남자들이 한 번에 먹는 양</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[상황]을 처음 해본 [계층]이 되지 않으려면~</p><p class="pattern-example">결혼식 처음 가본 민폐 하객 되지 않으려면 3가지만 기억하세요</p><p class="pattern-note">처음 시작할 때의 어려움과 주의점을 공감 단어로 연결합니다.</p><p class="pattern-extra">처음 자동차 정비소 가서 호구 되지 않으려면 이렇게 하세요</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[계층]에 들어가보면 꼭 보이는~</p><p class="pattern-example">남자들 단톡방에 들어가보면 꼭 보이는 유형 5가지</p><p class="pattern-note">특정 계층의 공감 콘텐츠는 다른 계층에게도 소구됩니다.</p><p class="pattern-extra">동네 미용실에서 항상 들리는 남편 험담 유형 10가지</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[상황] VS [상황]</p><p class="pattern-example">고양이 키우기 VS 강아지 키우기</p><p class="pattern-note">비교, 대조, 경쟁, 차이를 소재화합니다.</p><p class="pattern-extra">성우 지망생 VS 성우 더빙</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[상황] 느린 사람 유형~</p><p class="pattern-example">카톡 답장 느린 사람 유형 TOP 5</p><p class="pattern-note">유형을 Doing 리스트업 방식으로 구성합니다.</p><p class="pattern-extra">직장인 점심시간에 꼭 보이는 넌씨눈 유형 5가지</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[감정] 하고 싶을 때 드는 생각</p><p class="pattern-example">모든 걸 포기하고 싶을 때 드는 생각</p><p class="pattern-note">감정이 왜 발생하는지를 영상 제목에도 포함해야 합니다.</p><p class="pattern-extra">애인이 헤어지고 싶을 때 하는 말투</p></article>
+          <article class="pattern-card"><p class="pattern-formula">현실 [계층] 특)</p><p class="pattern-example">현실 여대생 특) 백팩이 아니라 핸드백 이라고요?</p><p class="pattern-note">특정 계층의 공감을 끌어낼 때 사용 가능한 AB입니다.</p><p class="pattern-extra">현실 직장인 특) 출근할 때 하루가 꼬이는 이유</p></article>
+          <article class="pattern-card"><p class="pattern-formula">~ 시작할 때 [상황], 끝날 때 [상황]</p><p class="pattern-example">영화 파묘 시작할 때 내 표정, 끝날 때 내 표정</p><p class="pattern-note">시작과 끝이 완전히 다르거나 반전이 있을 때 좋습니다.</p><p class="pattern-extra">샴푸 사용법 차이: 점심쯤 떡짐 / 저녁 10시 안 떡짐</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[상황]으로 [행동]하고 보이는 [감정]~</p><p class="pattern-example">서울로 이사 오고 보이는 최악의 단점 3가지</p><p class="pattern-note">리뷰 또는 브이로그 채널에서 초보 채널이 사용할 수 있는 무기입니다.</p><p class="pattern-extra">취준생이 되어보니 대학생 때 몰랐던 문제 5가지</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[감정] 없이는 볼 수 없는~</p><p class="pattern-example">눈물 없이는 볼 수 없는 애피소드 Top 3</p><p class="pattern-note">감정을 제대로 알리면 콘텐츠 기대를 높일 수 있습니다.</p><p class="pattern-extra">자존감 낮은 사람은 절대 볼 수 없는 드라마 장면 Best 5</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[계층] N년차가 생각하는~</p><p class="pattern-example">미국 유학생 3년차가 생각하는 한국식 영어 교육</p><p class="pattern-note">의견 콘텐츠는 계층의 권위를 가지면 효과가 올라갑니다.</p><p class="pattern-extra">의대생 4년차가 생각하는 의대 증원의 진짜 현실</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[상황][감정] 해본 사람들만 아는~</p><p class="pattern-example">짝사랑해본 사람만 느끼는 착각</p><p class="pattern-note">특정 계층만 공감할 소재를 한정해 어필합니다.</p><p class="pattern-extra">환승 이별 당해본 사람들만 이해한다는 노래 가사</p></article>
+          <article class="pattern-card"><p class="pattern-formula">이것 하나로 전 세계가 [감정]</p><p class="pattern-example">이 영상 하나로 전세계 패닉</p><p class="pattern-note">새로운 정보와 감정을 결합해 제목 효과를 극대화합니다.</p><p class="pattern-extra">애플에 떨어진 소송 하나로 전세계가 발칵</p></article>
+          <article class="pattern-card"><p class="pattern-formula">[이름]과 싱크로율 99%인 [이름]~</p><p class="pattern-example">배우 오정세랑 싱크로율 99%인 이재원의 에피소드</p><p class="pattern-note">사람 이름이 아니더라도 여러 방식으로 응용 가능합니다.</p><p class="pattern-extra">아웃백 투움바 파스타와 싱크로율 100%인 8천원짜리 파스타</p></article>
+        </div>
+      </section>
+    </section>
+  </main>
+</body>
+</html>

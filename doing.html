@@ -25,6 +25,7 @@
     .jump-nav { position:sticky; top:var(--jump-top); z-index:12; display:flex; flex-wrap:wrap; gap:10px; margin:-18px 0 46px; padding:12px 0; background:rgba(255,253,250,.94); border-bottom:1px solid rgba(25,25,25,.08); backdrop-filter:blur(14px); }
     .jump-nav a { border:1px solid #e3d4bd; border-radius:7px; background:#fff; padding:12px 14px; color:#252932; font-size:14px; font-weight:900; box-shadow:0 10px 24px rgba(45,36,22,.05); }
     .jump-nav a:hover { border-color:var(--red); color:var(--red); }
+    .jump-nav a.active { border-color:#15171b; background:#15171b; color:white; box-shadow:0 12px 24px rgba(21,23,27,.16); }
     .category { margin-top:52px; scroll-margin-top:170px; }
     .category:first-of-type { margin-top:0; }
     .category h2 { margin:0 0 20px; font-size:32px; line-height:1.18; font-weight:950; }
@@ -145,5 +146,36 @@
       </section>
     </section>
   </main>
+  <script>
+    const jumpNav = document.querySelector(".jump-nav");
+    const jumpLinks = Array.from(document.querySelectorAll(".jump-nav a"));
+    const jumpSections = jumpLinks.map((link) => document.querySelector(link.getAttribute("href"))).filter(Boolean);
+
+    function setActiveJumpLink() {
+      const offset = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--jump-top")) || 76;
+      const marker = window.scrollY + offset + 80;
+      let current = jumpSections[0];
+
+      for (const section of jumpSections) {
+        if (section.offsetTop <= marker) current = section;
+      }
+
+      jumpLinks.forEach((link) => {
+        const isActive = current && link.getAttribute("href") === `#${current.id}`;
+        link.classList.toggle("active", isActive);
+        if (isActive && jumpNav) {
+          link.setAttribute("aria-current", "true");
+          const left = link.offsetLeft - jumpNav.clientWidth / 2 + link.clientWidth / 2;
+          jumpNav.scrollTo({ left, behavior: "smooth" });
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", setActiveJumpLink, { passive: true });
+    window.addEventListener("resize", setActiveJumpLink);
+    setActiveJumpLink();
+  </script>
 </body>
 </html>

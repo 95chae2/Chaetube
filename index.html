@@ -1072,6 +1072,79 @@
       font-weight: 900;
     }
 
+    .title-score {
+      margin-top: 18px;
+      border: 1px solid #eadfce;
+      border-radius: var(--radius);
+      background: #fff;
+      padding: 18px;
+    }
+
+    .score-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+
+    .score-head strong {
+      font-size: 18px;
+      font-weight: 950;
+    }
+
+    .score-value {
+      color: var(--red);
+      font-size: 34px;
+      line-height: 1;
+      font-weight: 950;
+    }
+
+    .score-meter {
+      height: 10px;
+      border-radius: 999px;
+      background: #f1e8dc;
+      overflow: hidden;
+    }
+
+    .score-fill {
+      width: 0%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, #db2f2f, #f3b52f, #6ca94c);
+      transition: width .2s ease;
+    }
+
+    .score-breakdown {
+      display: grid;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .score-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      color: #424852;
+      font-size: 14px;
+      line-height: 1.35;
+      font-weight: 800;
+    }
+
+    .score-row span:last-child {
+      color: var(--ink);
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .score-feedback {
+      margin: 12px 0 0;
+      padding-left: 18px;
+      color: #555c67;
+      line-height: 1.6;
+      font-weight: 700;
+    }
+
     .composer-actions {
       display: flex;
       flex-wrap: wrap;
@@ -1811,6 +1884,17 @@
               <div class="part"><strong>Doing</strong><span id="doingPreview">선택한 Doing이 표시됩니다.</span></div>
             </div>
             <div class="output" id="output">예: 20대 자취생이 돈 아끼는 절대로 List Up</div>
+            <div class="title-score" aria-live="polite">
+              <div class="score-head">
+                <strong>제목 점수</strong>
+                <span class="score-value"><span id="scoreValue">0</span>점</span>
+              </div>
+              <div class="score-meter" aria-hidden="true">
+                <div class="score-fill" id="scoreFill"></div>
+              </div>
+              <div class="score-breakdown" id="scoreBreakdown"></div>
+              <ul class="score-feedback" id="scoreFeedback"></ul>
+            </div>
           </aside>
         </div>
       </div>
@@ -1825,6 +1909,10 @@
     const kickPreview = document.querySelector("#kickPreview");
     const doingPreview = document.querySelector("#doingPreview");
     const output = document.querySelector("#output");
+    const scoreValue = document.querySelector("#scoreValue");
+    const scoreFill = document.querySelector("#scoreFill");
+    const scoreBreakdown = document.querySelector("#scoreBreakdown");
+    const scoreFeedback = document.querySelector("#scoreFeedback");
     const composeButton = document.querySelector("#composeButton");
     const clearButton = document.querySelector("#clearButton");
     const orderSlots = [
@@ -1832,6 +1920,56 @@
       document.querySelector("#slot2"),
       document.querySelector("#slot3")
     ];
+
+    function getTitleScore(title, values) {
+      const feedback = [];
+      const compactLength = title.replace(/\s/g, "").length;
+      const hasPlaceholder = /[ㅇ○oO]{3,}|ㅁ{3,}|x{3,}/i.test(title);
+      const hasNumber = !hasPlaceholder && /[0-9０-９]|%|원|년|개월|일|시간|분|초|가지|단계|Top|Best|BEST|워스트|Worst/i.test(title);
+      const targetPattern = /(초보|입문자|직장인|자취생|주부|엄마|아빠|학생|대학생|남자|여자|20대|30대|40대|50대|사장|자영업자|프리랜서|크리에이터|유튜버|신혼|부모|아이|구독자|채널|피부|패션|다이어트|투자자|운전자|집사|게이머|팬|고객)/;
+      const curiosityPattern = /(왜|이유|정체|비밀|까닭|뭐길래|무슨 일|알고|모르는|의외로|절대로|무조건|함부로|반드시|하면 안되는|궁금|충격|경악|난리|미친|실화|진짜|\?)/;
+      const benefitPattern = /(방법|꿀팁|추천|비법|줄이는|늘리는|아끼는|버는|성공|실패|결과|후기|해결|개선|정리|요약|가능|좋은|쉽게|빠르게|살리는|올리는|낮추는|피하는|고르는|만드는|끝내기)/;
+      const clickPattern = /(절대로|무조건|함부로|의외로|반드시|하면 안되는|제대로|무심코|난리 난|미친|갓성비|초간단|비포|애프터|유니크|현실|유행|셀럽|트러블|고민)/;
+
+      let lengthScore = 0;
+      if (compactLength >= 18 && compactLength <= 40) lengthScore = 20;
+      else if ((compactLength >= 12 && compactLength < 18) || (compactLength > 40 && compactLength <= 48)) lengthScore = 14;
+      else if (compactLength > 0 && compactLength < 12) lengthScore = 8;
+      else if (compactLength > 48 && compactLength <= 60) lengthScore = 6;
+
+      const numberScore = hasNumber ? 15 : 0;
+      const targetScore = !hasPlaceholder && targetPattern.test(title) ? 20 : 0;
+      const curiosityScore = !hasPlaceholder && curiosityPattern.test(title) ? 20 : 0;
+      const benefitScore = !hasPlaceholder && benefitPattern.test(title) ? 15 : 0;
+      const clickScore = !hasPlaceholder && clickPattern.test(values.clickKick) ? 10 : 0;
+
+      const breakdown = [
+        ["글자 수 적절성", lengthScore, 20],
+        ["숫자 포함", numberScore, 15],
+        ["타깃 명확성", targetScore, 20],
+        ["궁금증 유발", curiosityScore, 20],
+        ["혜택/결과 제시", benefitScore, 15],
+        ["클릭 유도 단어", clickScore, 10]
+      ];
+
+      const score = breakdown.reduce((sum, item) => sum + item[1], 0);
+
+      if (!title) feedback.push("조합할 제목 요소를 먼저 입력해 주세요.");
+      else {
+        if (hasPlaceholder) feedback.push("임시 문자는 실제 타깃이나 혜택 문구로 바꿔야 점수가 올라갑니다.");
+        if (lengthScore < 20) feedback.push(compactLength > 40 ? `현재 ${compactLength}자입니다. 40자 안쪽으로 줄이면 더 좋습니다.` : "제목이 조금 짧습니다. 타깃이나 결과를 더 구체적으로 넣어보세요.");
+        if (!numberScore) feedback.push("숫자, 기간, 금액, Top5 같은 구체적인 수치를 넣어보세요.");
+        if (!targetScore) feedback.push("누가 볼 제목인지 타깃을 더 명확히 넣어보세요.");
+        if (!curiosityScore) feedback.push("왜, 이유, 정체, 의외로, 절대로처럼 궁금증을 만드는 표현을 더해보세요.");
+        if (!benefitScore) feedback.push("시청자가 얻는 혜택이나 결과를 더 분명히 보여주세요.");
+      }
+
+      return {
+        score,
+        breakdown,
+        feedback: feedback.length ? feedback.slice(0, 3) : ["좋아요. 타깃, 궁금증, 혜택/결과가 균형 있게 들어갔습니다."]
+      };
+    }
 
     function composeTitle() {
       const values = {
@@ -1844,7 +1982,14 @@
       abPreview.textContent = ab.value.trim() || "AB를 입력하면 여기에 표시됩니다.";
       kickPreview.textContent = clickKick.value.trim() || "선택한 클릭 킥이 표시됩니다.";
       doingPreview.textContent = doing.value.trim() || "선택한 Doing이 표시됩니다.";
-      output.textContent = parts.length ? parts.join(" ") : "예: 20대 자취생이 돈 아끼는 절대로 List Up";
+      const title = parts.length ? parts.join(" ") : "";
+      output.textContent = title || "예: 20대 자취생이 돈 아끼는 절대로 List Up";
+
+      const result = getTitleScore(title, values);
+      scoreValue.textContent = result.score;
+      scoreFill.style.width = `${result.score}%`;
+      scoreBreakdown.innerHTML = result.breakdown.map(([label, value, max]) => `<div class="score-row"><span>${label}</span><span>${value}/${max}</span></div>`).join("");
+      scoreFeedback.innerHTML = result.feedback.map((item) => `<li>${item}</li>`).join("");
     }
 
     composeButton.addEventListener("click", composeTitle);
